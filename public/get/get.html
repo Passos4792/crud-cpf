@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- ------------------------------------------------------------------------------------- -->
+    <!-- Configurações da página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#183e36">
+    <title>Pessoas cadastradas | Cadastro CPF</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/comum.js" defer></script>
+    <script src="/get/get.js" defer></script>
+</head>
+<body>
+    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+    <!-- ------------------------------------------------------------------------------------- -->
+    <!-- Cabeçalho e navegação -->
+    <header class="cabecalho">
+        <a class="marca" href="/"><span class="simbolo" aria-hidden="true">C</span> Cadastro<span class="marca-cpf">CPF</span></a>
+        <nav aria-label="Navegação principal">
+            <a href="/post/post.html" >Cadastrar</a>
+            <a href="/get/get.html" aria-current="page">Consultar</a>
+            <a href="/put/put.html" >Editar</a>
+            <a href="/delete/delete.html" >Excluir</a>
+        </nav>
+    </header>
+
+    <!-- ------------------------------------------------------------------------------------- -->
+    <!-- Conteúdo principal -->
+    <main id="conteudo">
+        <div class="topo-pagina">
+            <p class="caminho">GESTÃO DE CADASTROS / GET</p>
+            <h1>Pessoas cadastradas</h1>
+            <p class="subtitulo">Consulte todos os registros ou encontre uma pessoa pelo CPF.</p>
+        </div>
+        <p id="mensagem" class="mensagem" role="status" aria-live="polite" hidden></p>
+
+        <!-- ------------------------------------------------------------------------------------- -->
+        <!-- Busca por CPF -->
+        <form id="form-busca" class="painel busca">
+            <div class="grupo-campo">
+                <label for="cpf-busca">Buscar por CPF</label>
+                <input id="cpf-busca" name="cpf-busca" type="text" inputmode="numeric" placeholder="000.000.000-00" minlength="11" maxlength="14" required aria-describedby="ajuda-busca">
+                <small id="ajuda-busca">Digite os 11 números, com ou sem pontuação.</small>
+            </div>
+            <button type="submit">Buscar pessoa</button>
+            <button id="listar-todos" type="button" class="botao-secundario">Mostrar todos</button>
+        </form>
+        <!-- ------------------------------------------------------------------------------------- -->
+        <!-- Lista de pessoas -->
+        <section class="painel" aria-labelledby="titulo-resultados">
+            <div class="titulo-painel"><h2 id="titulo-resultados">Registros</h2><span id="contagem" class="selo">Carregando…</span></div>
+            <p id="lista-vazia" hidden>Nenhuma pessoa cadastrada. <a href="/post/post.html">Adicionar um cadastro</a>.</p>
+            <div id="tabela-container" class="rolagem-tabela" tabindex="0" role="region" aria-label="Tabela de pessoas; role para ver todos os campos">
+                <table>
+                    <caption class="somente-leitor">Pessoas cadastradas e seus dados completos</caption>
+                    <thead><tr><th scope="col">ID</th><th scope="col">CPF</th><th scope="col">Nome</th><th scope="col">Sobrenome</th><th scope="col">E-mail</th><th scope="col">Idade</th><th scope="col">Telefone</th><th scope="col">RG</th><th scope="col">Rua</th><th scope="col">Bairro</th><th scope="col">Cidade</th><th scope="col">Estado (UF)</th><th scope="col">Ações</th></tr></thead>
+                    <tbody id="tabela-corpo"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- ------------------------------------------------------------------------------------- -->
+    <!-- Rodapé -->
+    <footer>Cadastro CPF <span>Projeto acadêmico · Utilize dados fictícios</span></footer>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# ------- Serviço web no Render -------
+services:
+  - type: web
+    name: crud-cpf
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: node server.js
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production

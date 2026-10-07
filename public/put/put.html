@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- ------------------------------------------------------------------------------------- -->
+    <!-- Configurações da página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#183e36">
+    <title>Editar cadastro | Cadastro CPF</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/comum.js" defer></script>
+    <script src="/put/put.js" defer></script>
+</head>
+<body>
+    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+    <!-- ------------------------------------------------------------------------------------- -->
+    <!-- Cabeçalho e navegação -->
+    <header class="cabecalho">
+        <a class="marca" href="/"><span class="simbolo" aria-hidden="true">C</span> Cadastro<span class="marca-cpf">CPF</span></a>
+        <nav aria-label="Navegação principal">
+            <a href="/post/post.html" >Cadastrar</a>
+            <a href="/get/get.html" >Consultar</a>
+            <a href="/put/put.html" aria-current="page">Editar</a>
+            <a href="/delete/delete.html" >Excluir</a>
+        </nav>
+    </header>
+
+    <!-- ------------------------------------------------------------------------------------- -->
+    <!-- Conteúdo principal -->
+    <main id="conteudo">
+        <div class="topo-pagina">
+            <p class="caminho">GESTÃO DE CADASTROS / PUT</p>
+            <h1>Editar cadastro</h1>
+            <p class="subtitulo">Busque pelo CPF e atualize as informações do cadastro.</p>
+        </div>
+        <p id="mensagem" class="mensagem" role="status" aria-live="polite" hidden></p>
+
+        <!-- ------------------------------------------------------------------------------------- -->
+        <!-- Busca por CPF -->
+        <form id="form-busca" class="painel busca">
+            <div class="grupo-campo">
+                <label for="cpf-busca">Buscar por CPF</label>
+                <input id="cpf-busca" name="cpf-busca" type="text" inputmode="numeric" placeholder="000.000.000-00" minlength="11" maxlength="14" required aria-describedby="ajuda-busca">
+                <small id="ajuda-busca">Digite os 11 números, com ou sem pontuação.</small>
+            </div>
+            <button type="submit">Buscar pessoa</button>
+            
+        </form>
+        <!-- ------------------------------------------------------------------------------------- -->
+        <!-- Formulário de cadastro -->
+        <form id="formulario" class="painel" hidden>
+            <div class="titulo-painel"><h2>Dados da pessoa</h2><p>Todos os campos são obrigatórios.</p></div>
+            <p class="identificador">Registro <span id="id-registro"></span></p>
+            <div class="grade-formulario">
+                <div class="grupo-campo">
+                    <label for="cpf">CPF</label>
+                    <input id="cpf" name="cpf" type="text" inputmode="numeric" placeholder="000.000.000-00" minlength="11" maxlength="14"  required>
+                </div>
+                <div class="grupo-campo">
+                    <label for="nome">Nome</label>
+                    <input id="nome" name="nome" type="text" autocomplete="given-name" maxlength="200" required>
+                </div>
+                <div class="grupo-campo">
+                    <label for="sobrenome">Sobrenome</label>
+                    <input id="sobrenome" name="sobrenome" type="text" autocomplete="family-name" maxlength="200" required>
+                </div>
+                <div class="grupo-campo">
+                    <label for="email">E-mail</label>
+                    <input id="email" name="email" type="email" autocomplete="email" maxlength="200" required>
+                </div>
+                <div class="grupo-campo">
+                    <label for="idade">Idade</label>
+                    <input id="idade" name="idade" type="number" min="0" max="130" step="1"  required>
+                </div>
+                <div class="grupo-campo">
+                    <label for="telefone">Telefone</label>
+                    <input id="telefone" name="telefone" type="tel" autocomplete="tel" placeholder="(11) 99999-9999" maxlength="200" required>
+                </div>
+                <div class="grupo-campo">
+                    <label for="rg">RG</label>
+                    <input id="rg" name="rg" type="text"  maxlength="200" required>
+                </div>
+                <div class="grupo-campo">
+                    <label for="rua">Rua</label>
+                    <input id="rua" name="rua" type="text" autocomplete="address-line1" maxlength="200" required>
+                </div>
+                <div class="grupo-campo">
+                    <label for="bairro">Bairro</label>
+                    <input id="bairro" name="bairro" type="text"  maxlength="200" required>
+                </div>
+                <div class="grupo-campo">
+                    <label for="cidade">Cidade</label>
+                    <input id="cidade" name="cidade" type="text" autocomplete="address-level2" maxlength="200" required>
+                </div>
+                <div class="grupo-campo">
+                    <label for="estado">Estado (UF)</label>
+                    <select id="estado" name="estado" required autocomplete="address-level1">
+                        <option value="">Selecione</option>
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
+                        <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="DF">DF</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MT">MT</option>
+                        <option value="MS">MS</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SP">SP</option>
+                        <option value="SE">SE</option>
+                        <option value="TO">TO</option>
+                    </select>
+                </div>
+            </div>
+            <div class="acoes-formulario">
+                <button type="submit">Salvar alterações</button>
+                <button type="button" id="cancelar" class="botao-secundario">Cancelar edição</button>
+            </div>
+        </form>
+    </main>
+
+    <!-- ------------------------------------------------------------------------------------- -->
+    <!-- Rodapé -->
+    <footer>Cadastro CPF <span>Projeto acadêmico · Utilize dados fictícios</span></footer>
+</body>
+</html>
